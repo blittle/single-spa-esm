@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>single-spa esm</title>
+  </head>
+  <body>
+  </body>
+  <script type="systemjs-packagemap">
+  {
+    "packages": {
+      "react": "https://unpkg.com/react@16/umd/react.production.min.js",
+      "react-dom": "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+      "navbar": "http://localhost:8080/dist/navbar.js",
+      "app-1": "http://localhost:8080/dist/app-1.js",
+      "app-2": "http://localhost:8080/dist/app-2.js"
+    }
+  }
+  </script>
+  <script src="/node_modules/systemjs/dist/system.min.js"></script>
+  <script type="module" src="dist/root-config.js"></script>
+</html>

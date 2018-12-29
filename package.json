@@ -1,0 +1,30 @@
+{
+  "name": "single-spa-esm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-root": "rollup -c rollup.config.js",
+    "build-app-1": "rollup -c src/app-1/rollup.config.js",
+    "build-app-2": "rollup -c src/app-2/rollup.config.js",
+    "build-navbar": "rollup -c src/navbar/rollup.config.js",
+    "build-all": "npm-run-all -p build-root build-app-1 build-app-2 build-navbar"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "single-spa": "^4.0.1",
+    "single-spa-react": "^2.9.0",
+    "systemjs": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.0.0",
+    "rollup-plugin-babel": "^4.2.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0"
+  }
+}
