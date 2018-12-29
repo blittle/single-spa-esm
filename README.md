@@ -6,4 +6,4 @@ A sample single-spa project that utilizes SystemJS 2.0 with modern ESM compatibi
 1. Run `npm install`
 2. Run `npm run build-all`
 3. Run `npm start`
-4. Navigate to https://localhost:8080
+4. Navigate to http://localhost:8080
