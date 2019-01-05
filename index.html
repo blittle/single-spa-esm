@@ -18,6 +18,27 @@
     }
   }
   </script>
-  <script src="/node_modules/systemjs/dist/system.min.js"></script>
+  <script>
+    function overridePackages(packages = []) {
+      const im = document.createElement('script');
+      im.type = 'systemjs-packagemap';
+      im.textContent = `{ "imports": { ${packages.reduce(
+        (total, package, index) =>
+          `"${package.name}": "${package.url}"${
+            index === packages.length - 1 ? '' : ','
+          }`,
+        '',
+      )} } }`;
+      document.documentElement.appendChild(im);
+    }
+
+    overridePackages(
+      Object.keys(localStorage).reduce((packagesToOverride, key) => {
+        if (key.includes('package-overrride')) return [...packagesToOverride, {name: key, url: localStorage[key]}]
+        else return packagesToOverride;
+      }, []),
+    );
+  </script>
+  <script src="/node_modules/systemjs/dist/system.js"></script>
   <script src="dist/root-config.js"></script>
 </html>
