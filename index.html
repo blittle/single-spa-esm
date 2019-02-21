@@ -19,18 +19,21 @@
   </script>
   <script>
     // Override packages by setting localStorage flags: `package-override:react`: `https://some-url`
-
     function overridePackages(packages = []) {
-      const im = document.createElement('script');
-      im.type = 'systemjs-importmap';
-      im.textContent = `{ "imports": { ${packages.reduce(
-        (total, package, index) =>
-          `"${package.name}": "${package.url}"${
-            index === packages.length - 1 ? '' : ','
-          }`,
-        '',
-      )} } }`;
-      document.querySelector('head').appendChild(im);
+      let im = document.querySelector('script[type=systemjs-importmap]');
+
+      if (!im) {
+        im = document.createElement('script');
+        im.type = 'systemjs-importmap';
+        im.textContent = `{ "imports": { } }`;
+        document.querySelector('head').appendChild(im);
+      }
+
+      let imports = JSON.parse(im.textContent).imports || {};
+      imports = packages.reduce(
+        (imports, package) => Object.assign(imports, {[package.name]: package.url}), imports
+      );
+      im.textContent = `{ "imports": ${JSON.stringify(imports)} }`;
     }
 
     overridePackages(

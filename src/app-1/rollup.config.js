@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 export default {
   input: 'src/app-1/app-1.js',
   output: {
-    file: 'dist/app-1.js',
+    dir: 'dist',
     format: 'system'
   },
   plugins: [

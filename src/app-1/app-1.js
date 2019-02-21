@@ -3,8 +3,19 @@ import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 
 class RootComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { app: null };
+  }
+
+  componentDidMount() {
+    import('./app.component.js').then(load => this.setState({app: load.default}))
+  }
+
   render() {
-    return <h1>App 1</h1>
+    return <div>
+      {this.state.app ? <this.state.app /> : null}
+    </div>
   }
 }
 
