@@ -1,5 +1,5 @@
 # single-spa-esm
-A sample single-spa project that utilizes SystemJS 2.0 with modern ESM compatibility
+A sample single-spa project that utilizes SystemJS 3.0 with modern ESM compatibility
 
 ## Setup
 
