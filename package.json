@@ -9,14 +9,14 @@
     "build-app-2": "rollup -c src/app-2/rollup.config.js",
     "build-navbar": "rollup -c src/navbar/rollup.config.js",
     "build-all": "npm-run-all -p build-root build-app-1 build-app-2 build-navbar",
-    "start": "static -p 8080"
+    "start": "static -p 8080 -a 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "single-spa": "^4.0.1",
     "single-spa-react": "^2.9.0",
-    "systemjs": "^2.1.1"
+    "systemjs": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

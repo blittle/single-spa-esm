@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width" />
     <title>single-spa esm</title>
   </head>
-  <body>
-  </body>
-  <script type="systemjs-packagemap">
-  {
-    "packages": {
-      "react": "https://unpkg.com/react@16/umd/react.production.min.js",
-      "react-dom": "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
-      "navbar": "http://localhost:8080/dist/navbar.js",
-      "app-1": "http://localhost:8080/dist/app-1.js",
-      "app-2": "http://localhost:8080/dist/app-2.js"
+  <body></body>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "react": "https://unpkg.com/react@16/umd/react.production.min.js",
+        "react-dom": "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+        "navbar": "http://localhost:8080/dist/navbar.js",
+        "app-1": "http://localhost:8080/dist/app-1.js",
+        "app-2": "http://localhost:8080/dist/app-2.js"
+      }
     }
-  }
   </script>
   <script>
+    // Override packages by setting localStorage flags: `package-override:react`: `https://some-url`
+
     function overridePackages(packages = []) {
       const im = document.createElement('script');
-      im.type = 'systemjs-packagemap';
+      im.type = 'systemjs-importmap';
       im.textContent = `{ "imports": { ${packages.reduce(
         (total, package, index) =>
           `"${package.name}": "${package.url}"${
@@ -29,12 +30,16 @@
           }`,
         '',
       )} } }`;
-      document.documentElement.appendChild(im);
+      document.querySelector('head').appendChild(im);
     }
 
     overridePackages(
       Object.keys(localStorage).reduce((packagesToOverride, key) => {
-        if (key.includes('package-overrride')) return [...packagesToOverride, {name: key, url: localStorage[key]}]
+        if (key.includes('package-override'))
+          return [
+            ...packagesToOverride,
+            {name: key.substring(17), url: localStorage[key]},
+          ];
         else return packagesToOverride;
       }, []),
     );
