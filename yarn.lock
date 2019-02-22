@@ -1775,11 +1775,6 @@ single-spa-react@^2.9.0:
   resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-2.9.0.tgz#f0314a15f9c64e159b0fd0e889f0bde9c7d3ac5e"
   integrity sha512-ifHjaS2lgXrty8N3rxVvUG7uc7X++gcDztQ9Xdmr/yuz2/dXHCKGjGU459Ly9P6ja9wBG74cit6amEuVevN5tA==
 
-single-spa@^4.0.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-4.1.1.tgz#fefbe6a0a81a93fb67853667ff723626dcc16d70"
-  integrity sha512-sarodEmIjDcCufDuW96bNgHY0JsFXi7Pi817gaVk23pAJBh539+k3HoMJbNhRUdBnRRYdVGZ63/UD7Ji0elC4Q==
-
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"

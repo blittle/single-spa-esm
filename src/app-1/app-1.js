@@ -1,22 +1,13 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 
-class RootComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { app: null };
-  }
+const App1Component = lazy(() => import('./app.component'))
 
-  componentDidMount() {
-    import('./app.component.js').then(load => this.setState({app: load.default}))
-  }
-
-  render() {
-    return <div>
-      {this.state.app ? <this.state.app /> : null}
-    </div>
-  }
+function RootComponent() {
+  return <Suspense fallback={<div>Loading...</div>}>
+    <App1Component />
+  </Suspense>
 }
 
 const reactLifecycles = singleSpaReact({
