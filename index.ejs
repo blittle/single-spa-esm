@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>single-spa esm</title>
+  </head>
+  <body></body>
+  <script type="importmap">
+    {
+      "imports": {
+        <% mergedModules.forEach(function(m, index) { %>
+              "<%= m.mod %>": "<%= m.url %>"<%= (index !== mergedModules.length - 1) ? ',' : '' %>
+        <% }); %>
+      }
+    }
+  </script>
+  <% preload.forEach(function(preload) { %>
+  <link rel="modulepreload" href="<%= mergedModules.find(m => m.mod === preload).url %>">
+  <% }) %>
+  <script type="module" src="root-config.js"></script>
+</html>

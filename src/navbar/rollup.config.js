@@ -6,7 +6,7 @@ export default {
   input: 'src/navbar/navbar.js',
   output: {
     file: 'dist/navbar.js',
-    format: 'system'
+    format: 'esm'
   },
   plugins: [
     resolve(),

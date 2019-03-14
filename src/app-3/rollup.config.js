@@ -3,7 +3,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 
 export default {
-  input: 'src/app-1/app-1.js',
+  input: 'src/app-3/app-3.js',
   output: {
     dir: 'dist',
     format: 'esm'

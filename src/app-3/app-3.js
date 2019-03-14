@@ -14,7 +14,7 @@ class RootComponent extends React.Component {
 
   render() {
     return <div>
-      <h1>App 1</h1>
+      <h1>App 3</h1>
       {this.state.app ? <this.state.app /> : null}
     </div>
   }
