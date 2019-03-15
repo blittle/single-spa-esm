@@ -4,7 +4,10 @@ A sample single-spa project with native ecmascript module support
 ## Requirements
 Chrome 74 (currently Chrome Dev or Canary) with the experimental web platform features flag turned on (chrome://flags/#enable-experimental-web-platform-features).
 
-## Setup
+## Demo
+Make sure you have followed the steps in the requirements and go to: http://blittle.openode.io
+
+## Local Setup
 
 1. Run `yarn install`
 2. Run `yarn build-all`
